@@ -15,4 +15,9 @@ function logMessage(clientAddress, command) {
     fs.appendFile('server.log', logEntry, (err) => {
         if (err) console.error('Error logging message:', err);
     });
+
 }
+server.on('listening', () => {
+    console.log(`Server is listening on ${IP_ADDRESS}:${PORT}`);
+});
+
