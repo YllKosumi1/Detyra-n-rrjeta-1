@@ -21,3 +21,7 @@ server.on('listening', () => {
     console.log(`Server is listening on ${IP_ADDRESS}:${PORT}`);
 });
 
+server.on('message', (message, rinfo) => {
+    const clientAddress = `${rinfo.address}:${rinfo.port}`;
+    const command = message.toString().trim();
+});
