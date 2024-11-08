@@ -26,8 +26,14 @@ server.on('message', (message, rinfo) => {
     const command = message.toString().trim();
 });
 
-if (!clients.has(clientAddress) && clients.size >= MAX_CLIENTS) {
-    server.send('Error: Numri maksimal i klientëve është arritur. Lidhja u refuzua.', rinfo.port, rinfo.address);
-    console.log(`Klienti ${clientAddress} u refuzua për shkak të limitit të klientëve.`);
-    return;
+if (!clients.has(clientAddress)) {
+    clients.set(clientAddress, Date.now());
+    console.log(`Klienti ${clientAddress} u shtua. Numri i klientëve tani është: ${clients.size}`);
+
+    if (!firstClient && clients.size === 1) {
+        firstClient = clientAddress;
+        console.log(`Klienti i parë u caktua: ${firstClient}`);
+    }
+} else {
+    clients.set(clientAddress, Date.now());
 }
