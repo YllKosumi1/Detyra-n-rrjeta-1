@@ -25,3 +25,9 @@ server.on('message', (message, rinfo) => {
     const clientAddress = `${rinfo.address}:${rinfo.port}`;
     const command = message.toString().trim();
 });
+
+if (!clients.has(clientAddress) && clients.size >= MAX_CLIENTS) {
+    server.send('Error: Numri maksimal i klientëve është arritur. Lidhja u refuzua.', rinfo.port, rinfo.address);
+    console.log(`Klienti ${clientAddress} u refuzua për shkak të limitit të klientëve.`);
+    return;
+}
