@@ -1,0 +1,1 @@
+# Detyra-n-rrjeta-1
