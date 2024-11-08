@@ -47,4 +47,43 @@ server.on('message', (message, rinfo) => {
 
     logMessage(clientAddress, command);
 
+    const isFirstClient = clientAddress === firstClient;
+    if (isFirstClient) {
+        // Përpunimi i komandave për klientin e parë
+        if (command.startsWith('READ')) {
+            const fileName = command.split(' ')[1];
+            const filePath = `./${fileName}`;
+            fs.readFile(filePath, 'utf-8', (err, data) => {
+                if (err) {
+                    server.send('Error: File not found or could not be read.', rinfo.port, rinfo.address);
+                } else {
+                    server.send(`File content: ${data}`, rinfo.port, rinfo.address);
+                }
+            });
+        } else if (command.startsWith('APPEND')) {
+            const [_, fileName, ...content] = command.split(' ');
+            const filePath = `./${fileName}`;
+            const dataToAppend = content.join(' ');
+            fs.appendFile(filePath, `\n${dataToAppend}`, (err) => {
+                if (err) {
+                    server.send('Error: Failed to append to the file.', rinfo.port, rinfo.address);
+                } else {
+                    server.send('Content successfully appended to the file.', rinfo.port, rinfo.address);
+                }
+            });
+        } else if (command.startsWith('EXECUTE')) {
+            const cmd = command.split(' ').slice(1).join(' ');
+            exec(cmd, (err, stdout, stderr) => {
+                if (err) {
+                    server.send('Error: Command execution failed.', rinfo.port, rinfo.address);
+                } else {
+                    server.send(`Command output:\n${stdout}`, rinfo.port, rinfo.address);
+                }
+            });
+        } else {
+            server.send('Unknown command.', rinfo.port, rinfo.address);
+        }
+    } else {
+        server.send(rinfo.port, rinfo.address);
+    }
 });
