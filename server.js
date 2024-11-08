@@ -84,6 +84,6 @@ server.on('message', (message, rinfo) => {
             server.send('Unknown command.', rinfo.port, rinfo.address);
         }
     } else {
-        server.send(rinfo.port, rinfo.address);
+        server.send('Error: Ju nuk keni leje për të ekzekutuar këtë komandë.', rinfo.port, rinfo.address);
     }
 });
