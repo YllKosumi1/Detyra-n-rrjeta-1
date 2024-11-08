@@ -16,3 +16,14 @@ client.send('CONNECT', SERVER_PORT, SERVER_HOST, (err) => {
         console.error('Gabim gjatë dërgimit të mesazhit të parë të lidhjes:', err);
     }
 });
+client.on('message', (msg, rinfo) => {
+    const message = msg.toString();
+
+    if (message.startsWith('Error')) {
+        console.log(`Përgjigje nga serveri: ${message}`);
+        client.close();
+        rl.close();
+    } else if (!isConnected) {
+        console.log(`Klienti është lidhur me serverin në ${SERVER_HOST}:${SERVER_PORT}`);
+        console.log("Shkruani komandën tuaj (READ <file>, APPEND <file> <content>, EXECUTE <command>, EXIT për t'u larguar):");
+        isConnected = true;
