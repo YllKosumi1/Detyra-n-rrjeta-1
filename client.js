@@ -27,3 +27,15 @@ client.on('message', (msg, rinfo) => {
         console.log(`Klienti është lidhur me serverin në ${SERVER_HOST}:${SERVER_PORT}`);
         console.log("Shkruani komandën tuaj (READ <file>, APPEND <file> <content>, EXECUTE <command>, EXIT për t'u larguar):");
         isConnected = true;
+ 
+        rl.on('line', (line) => {
+            if (line.trim().toUpperCase() === 'EXIT') {
+                client.send('DISCONNECT', SERVER_PORT, SERVER_HOST, (err) => {
+                    if (err) {
+                        console.error('Gabim gjatë dërgimit të mesazhit të largimit:', err);
+                    }
+                    client.close();
+                    rl.close();
+                    console.log('U larguat nga serveri.');
+                });
+            } 
