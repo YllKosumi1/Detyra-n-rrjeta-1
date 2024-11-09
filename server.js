@@ -1,14 +1,20 @@
 const dgram = require('dgram');
 const fs = require('fs');
-const server = dgram.createSocket('udp4');
 const { exec } = require('child_process');
+const server = dgram.createSocket('udp4');
+
 const PORT = 12346;
 const IP_ADDRESS = '127.0.0.1';
 
 const clients = new Map();
 const MAX_CLIENTS = 4;
 const INACTIVITY_TIMEOUT = 60000;
+const NON_ADMIN_DELAY = 2000; // Delay of 2 seconds for non-admin clients
 let firstClient = null;
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 function logMessage(clientAddress, command) {
     const timestamp = new Date().toISOString();
