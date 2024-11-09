@@ -3,7 +3,8 @@ const readline = require('readline');
 const client = dgram.createSocket('udp4');
 
 const SERVER_HOST = '127.0.0.1';
-const SERVER_PORT = 12346; 
+const SERVER_PORT = 12347; 
+
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
@@ -16,6 +17,7 @@ client.send('CONNECT', SERVER_PORT, SERVER_HOST, (err) => {
         console.error('Gabim gjatë dërgimit të mesazhit të parë të lidhjes:', err);
     }
 });
+
 client.on('message', (msg, rinfo) => {
     const message = msg.toString();
 
@@ -25,9 +27,18 @@ client.on('message', (msg, rinfo) => {
         rl.close();
     } else if (!isConnected) {
         console.log(`Klienti është lidhur me serverin në ${SERVER_HOST}:${SERVER_PORT}`);
-        console.log("Shkruani komandën tuaj (READ <file>, APPEND <file> <content>, EXECUTE <command>, EXIT për t'u larguar):");
+        console.log("Komandat e disponueshme:");
+        console.log("  READ <file>         - Lexon përmbajtjen e një skedari");
+        console.log("  APPEND <file> <text> - Shton tekstin në fund të skedarit");
+        console.log("  EXECUTE <command>   - Ekzekuton një komandë në server");
+        console.log("  CREATE <file>       - Krijon një skedar të ri");
+        console.log("  ERASE <client>      - Fshin një klient të specifikuar nga serveri");
+        console.log("  LIST                - Shfaq listën e klientëve të lidhur");
+        console.log("  EXIT                - Largoheni nga serveri");
+        console.log("\nShkruani komandën tuaj:");
+
         isConnected = true;
- 
+
         rl.on('line', (line) => {
             if (line.trim().toUpperCase() === 'EXIT') {
                 client.send('DISCONNECT', SERVER_PORT, SERVER_HOST, (err) => {
@@ -46,8 +57,7 @@ client.on('message', (msg, rinfo) => {
                 });
             }
         });
-    }
-    else {
+    } else {
         console.log(`Përgjigje nga serveri: ${message}`);
     }
 });
