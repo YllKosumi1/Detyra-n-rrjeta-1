@@ -87,3 +87,15 @@ server.on('message', (message, rinfo) => {
         server.send('Error: Ju nuk keni leje për të ekzekutuar këtë komandë.', rinfo.port, rinfo.address);
     }
 });
+setInterval(() => {
+    const now = Date.now();
+    for (const [client, lastActivity] of clients.entries()) {
+        if (now - lastActivity > INACTIVITY_TIMEOUT) {
+            clients.delete(client);
+            console.log(`Klienti ${client} u hoq për shkak të inaktivitetit.`);
+            console.log(`Numri aktual i klientëve: ${clients.size}`);
+        }
+    }
+}, INACTIVITY_TIMEOUT);
+
+server.bind(PORT, IP_ADDRESS);
