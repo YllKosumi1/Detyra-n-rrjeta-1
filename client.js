@@ -38,4 +38,12 @@ client.on('message', (msg, rinfo) => {
                     rl.close();
                     console.log('U larguat nga serveri.');
                 });
-            } 
+            } else {
+                client.send(line, SERVER_PORT, SERVER_HOST, (err) => {
+                    if (err) {
+                        console.error('Gabim gjatë dërgimit të mesazhit:', err);
+                    }
+                });
+            }
+        });
+    }
