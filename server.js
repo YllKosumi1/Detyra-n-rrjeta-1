@@ -9,7 +9,7 @@ const IP_ADDRESS = '127.0.0.1';
 const clients = new Map();
 const MAX_CLIENTS = 4;
 const INACTIVITY_TIMEOUT = 60000;
-const NON_ADMIN_DELAY = 2000; // Delay of 2 seconds for non-admin clients
+const NON_ADMIN_DELAY = 2000; 
 let firstClient = null;
 
 function sleep(ms) {
@@ -86,7 +86,6 @@ function handleDisconnect(clientAddress, rinfo) {
 
 async function handleCommand(command, rinfo, isFirstClient) {
     if (!isFirstClient) {
-        // Introduce delay for non-admin clients
         await sleep(NON_ADMIN_DELAY);
     }
 
@@ -111,8 +110,41 @@ async function handleCommand(command, rinfo, isFirstClient) {
                 server.send('Content successfully appended to the file.', rinfo.port, rinfo.address);
             }
         });
+    } else if (isFirstClient && command.startsWith('EXECUTE')) {
+        const cmd = command.split(' ').slice(1).join(' ');
+        exec(cmd, (err, stdout, stderr) => {
+            if (err) {
+                server.send('Error: Command execution failed.', rinfo.port, rinfo.address);
+            } else {
+                server.send(`Command output:\n${stdout}`, rinfo.port, rinfo.address);
+            }
+        });
+    } else if (isFirstClient && command.startsWith('CREATE')) {
+        const fileName = command.split(' ')[1];
+        fs.writeFile(`./${fileName}`, '', (err) => {
+            if (err) {
+                server.send('Error: File could not be created.', rinfo.port, rinfo.address);
+            } else {
+                server.send(`File ${fileName} successfully created.`, rinfo.port, rinfo.address);
+            }
+        });
+    } else if (isFirstClient && command.startsWith('ERASE')) {
+        const clientToErase = command.split(' ')[1];
+        if (clients.has(clientToErase)) {
+            clients.delete(clientToErase);
+            server.send(`Client ${clientToErase} has been removed.`, rinfo.port, rinfo.address);
+            console.log(`Client ${clientToErase} erased by ${rinfo.address}:${rinfo.port}`);
+        } else {
+            server.send('Error: Specified client not found.', rinfo.port, rinfo.address);
+        }
+    } else if (isFirstClient && command === 'LIST') {
+        const clientList = Array.from(clients.keys()).join('\n');
+        server.send(`Connected clients:\n${clientList}`, rinfo.port, rinfo.address);
+    } else {
+        server.send('Unknown command or insufficient permissions.', rinfo.port, rinfo.address);
     }
 }
+
 setInterval(() => {
     const now = Date.now();
     for (const [client, lastActivity] of clients.entries()) {
