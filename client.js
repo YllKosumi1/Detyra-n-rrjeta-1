@@ -47,3 +47,11 @@ client.on('message', (msg, rinfo) => {
             }
         });
     }
+    else {
+        console.log(`Përgjigje nga serveri: ${message}`);
+    }
+});
+
+client.on('close', () => {
+    console.log('Klienti u mbyll.');
+});
