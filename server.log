@@ -29,3 +29,22 @@ Timestamp: 2024-11-10T16:04:56.510Z, Client: 127.0.0.1:60353, Command: CREATE VV
 Timestamp: 2024-11-10T16:05:05.273Z, Client: 127.0.0.1:60353, Command: LIST
 Timestamp: 2024-11-10T16:05:43.145Z, Client: 127.0.0.1:60353, Command: LIST
 Timestamp: 2024-11-10T16:06:10.788Z, Client: 127.0.0.1:60353, Command: ERASE 127.0.0.1:60068
+Timestamp: 2024-11-10T16:23:12.733Z, Client: 127.0.0.1:58445, Command: CONNECT
+Timestamp: 2024-11-10T16:23:18.164Z, Client: 127.0.0.1:58445, Command: READ V.txt
+Timestamp: 2024-11-10T16:23:28.407Z, Client: 127.0.0.1:58445, Command: APPEND V.txt vleraa
+Timestamp: 2024-11-10T16:23:36.322Z, Client: 127.0.0.1:58445, Command: LIST
+Timestamp: 2024-11-10T16:23:39.818Z, Client: 127.0.0.1:65206, Command: CONNECT
+Timestamp: 2024-11-10T16:23:42.769Z, Client: 127.0.0.1:63725, Command: CONNECT
+Timestamp: 2024-11-10T16:23:50.021Z, Client: 127.0.0.1:65206, Command: READ V.txt
+Timestamp: 2024-11-10T16:23:58.208Z, Client: 127.0.0.1:55359, Command: CONNECT
+Timestamp: 2024-11-10T16:24:12.646Z, Client: 127.0.0.1:58445, Command: LIST
+Timestamp: 2024-11-10T16:24:39.128Z, Client: 127.0.0.1:58445, Command: ERASE 127.0.0.1:55359
+Timestamp: 2024-11-10T16:24:44.014Z, Client: 127.0.0.1:49641, Command: CONNECT
+Timestamp: 2024-11-10T16:25:01.245Z, Client: 127.0.0.1:57736, Command: CONNECT
+Timestamp: 2024-11-10T16:25:43.633Z, Client: 127.0.0.1:58445, Command: LIST
+Timestamp: 2024-11-10T16:25:53.540Z, Client: 127.0.0.1:58445, Command: 127.0.0.1:55359
+Timestamp: 2024-11-10T16:26:27.954Z, Client: 127.0.0.1:58445, Command: READ V.txt
+Timestamp: 2024-11-10T16:26:34.627Z, Client: 127.0.0.1:58445, Command: APPEND V. TXT
+Timestamp: 2024-11-10T16:26:49.111Z, Client: 127.0.0.1:58445, Command: APPEND V. txt
+Timestamp: 2024-11-10T16:26:55.301Z, Client: 127.0.0.1:58445, Command: LIST
+Timestamp: 2024-11-10T16:26:59.331Z, Client: 127.0.0.1:58445, Command: ERASE 2

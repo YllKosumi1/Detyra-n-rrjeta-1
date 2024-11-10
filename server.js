@@ -52,11 +52,6 @@ server.on('message', (message, rinfo) => {
             console.log(`Klienti i parë u caktua: ${firstClient}`);
         }
 
-        const welcomeMessage = firstClient === clientAddress 
-            ? 'You are connected with full access. You can use READ, APPEND, EXECUTE, CREATE, ERASE, and LIST commands.'
-            : 'You are connected with read-only access. You can use the READ command only.';
-        server.send(welcomeMessage, rinfo.port, rinfo.address);
-        return;
     }
 
     clients.set(clientAddress, Date.now());
