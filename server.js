@@ -3,7 +3,7 @@ const fs = require('fs');
 const { exec } = require('child_process');
 const server = dgram.createSocket('udp4');
 
-const PORT = 12346;
+const PORT = 12347;
 const IP_ADDRESS = '127.0.0.1';
 
 const clients = new Map();

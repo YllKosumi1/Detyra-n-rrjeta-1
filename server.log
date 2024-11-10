@@ -4,3 +4,13 @@ Timestamp: 2024-11-09T23:38:03.417Z, Client: 127.0.0.1:57510, Command: CONNECT
 Timestamp: 2024-11-09T23:38:07.775Z, Client: 127.0.0.1:50823, Command: CONNECT
 Timestamp: 2024-11-09T23:39:09.701Z, Client: 127.0.0.1:61337, Command: CONNECT
 Timestamp: 2024-11-09T23:39:13.047Z, Client: 127.0.0.1:50692, Command: CONNECT
+Timestamp: 2024-11-09T23:48:47.233Z, Client: 127.0.0.1:53273, Command: CONNECT
+Timestamp: 2024-11-09T23:55:38.232Z, Client: 127.0.0.1:64479, Command: READ V.txt
+Timestamp: 2024-11-09T23:58:50.712Z, Client: 127.0.0.1:61327, Command: list
+Timestamp: 2024-11-09T23:58:53.534Z, Client: 127.0.0.1:61327, Command: LIST
+Timestamp: 2024-11-09T23:59:30.454Z, Client: 127.0.0.1:62610, Command: READ V.txt
+Timestamp: 2024-11-09T23:59:54.730Z, Client: 127.0.0.1:62610, Command: APPEND V.txt teksti
+Timestamp: 2024-11-10T00:00:13.620Z, Client: 127.0.0.1:62610, Command: CREATE V.html
+Timestamp: 2024-11-10T00:00:20.570Z, Client: 127.0.0.1:62610, Command: LIST
+Timestamp: 2024-11-10T00:00:28.814Z, Client: 127.0.0.1:59563, Command: READ
+Timestamp: 2024-11-10T00:01:06.093Z, Client: 127.0.0.1:62610, Command: LIST
