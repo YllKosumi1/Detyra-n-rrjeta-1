@@ -10,12 +10,12 @@ Klienti i parë ka akses të plotë dhe mund të përdorë të gjitha komandat.
 Klientët e tjerë kanë vetëm të drejtën për të lexuar skedarë.
 
 # Komandat e Përkrahura:
-READ <file>: Lexon përmbajtjen e një skedari.
-APPEND <file> <text>: (Vetëm për klientin e parë) Shton tekst në fund të skedarit.
-EXECUTE <command>: (Vetëm për klientin e parë) Ekzekuton një komandë të sistemit.
-CREATE <file>: (Vetëm për klientin e parë) Krijon një skedar të ri.
-ERASE <client>: (Vetëm për klientin e parë) Fshin një klient nga lista e lidhjeve.
-LIST: (Vetëm për klientin e parë) Shfaq listën e klientëve të lidhur.
+READ <file>: Lexon përmbajtjen e një skedari. <br>
+APPEND <file> <text>: (Vetëm për klientin e parë) Shton tekst në fund të skedarit. <br>
+EXECUTE <command>: (Vetëm për klientin e parë) Ekzekuton një komandë të sistemit. <br>
+CREATE <file>: (Vetëm për klientin e parë) Krijon një skedar të ri. <br>
+ERASE <client>: (Vetëm për klientin e parë) Fshin një klient nga lista e lidhjeve. <br>
+LIST: (Vetëm për klientin e parë) Shfaq listën e klientëve të lidhur. <br>
 EXIT: Klienti largohet nga serveri.
 Logimi dhe Inaktiviteti:
 
