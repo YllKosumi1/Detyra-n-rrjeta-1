@@ -27,13 +27,13 @@ client.on('message', (msg, rinfo) => {
     } else if (!isConnected) {
         console.log(`Klienti është lidhur me serverin në ${SERVER_HOST}:${SERVER_PORT}`);
         console.log("Komandat e disponueshme:");
-        console.log("  READ <file>         - Lexon përmbajtjen e një skedari");
-        console.log("  APPEND <file> <text> - Shton tekstin në fund të skedarit");
-        console.log("  EXECUTE <command>   - Ekzekuton një komandë në server");
-        console.log("  CREATE <file>       - Krijon një skedar të ri");
-        console.log("  ERASE <client>      - Fshin një klient të specifikuar nga serveri");
-        console.log("  LIST                - Shfaq listën e klientëve të lidhur");
-        console.log("  EXIT                - Largoheni nga serveri");
+        console.log(" READ <file>          - Lexon përmbajtjen e një skedari");
+        console.log(" APPEND <file> <text> - Shton tekstin në fund të skedarit");
+        console.log(" EXECUTE <command>    - Ekzekuton një komandë në server");
+        console.log(" CREATE <file>        - Krijon një skedar të ri");
+        console.log(" ERASE <client>       - Fshin një klient të specifikuar nga serveri");
+        console.log(" LIST                 - Shfaq listën e klientëve të lidhur");
+        console.log(" EXIT                 - Largoheni nga serveri");
         console.log("\nShkruani komandën tuaj:");
 
         isConnected = true;
