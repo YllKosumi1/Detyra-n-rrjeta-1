@@ -45,7 +45,7 @@ server.on('message', (message, rinfo) => {
 
     if (!clients.has(clientAddress)) {
         clients.set(clientAddress, Date.now());
-        console.log(`Klienti ${clientAddress} u shtua. Numri i klientëve tani është: ${clients.size}`);
+        console.log(``);
 
         if (!firstClient && clients.size === 1) {
             firstClient = clientAddress;
