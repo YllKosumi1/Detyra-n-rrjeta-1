@@ -23,8 +23,7 @@ client.on('message', (msg, rinfo) => {
 
     if (message.startsWith('Error')) {
         console.log(`Përgjigje nga serveri: ${message}`);
-        client.close();
-        rl.close();
+       
     } else if (!isConnected) {
         console.log(`Klienti është lidhur me serverin në ${SERVER_HOST}:${SERVER_PORT}`);
         console.log("Komandat e disponueshme:");
