@@ -18,7 +18,6 @@ ERASE <client>: (Vetëm për klientin e parë) Fshin një klient nga lista e lid
 LIST: (Vetëm për klientin e parë) Shfaq listën e klientëve të lidhur. <br>
 EXIT: Klienti largohet nga serveri. <br> <br>
 Logimi dhe Inaktiviteti: <br>
-
 Çdo komandë regjistrohet në një fajll log ("server.log").
 Klientët që janë inaktiv për më shumë se 60 sekonda largohen automatikisht.
 
