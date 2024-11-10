@@ -14,3 +14,11 @@ Timestamp: 2024-11-10T00:00:13.620Z, Client: 127.0.0.1:62610, Command: CREATE V.
 Timestamp: 2024-11-10T00:00:20.570Z, Client: 127.0.0.1:62610, Command: LIST
 Timestamp: 2024-11-10T00:00:28.814Z, Client: 127.0.0.1:59563, Command: READ
 Timestamp: 2024-11-10T00:01:06.093Z, Client: 127.0.0.1:62610, Command: LIST
+Timestamp: 2024-11-10T15:27:15.593Z, Client: 127.0.0.1:50484, Command: READ V.txt
+Timestamp: 2024-11-10T15:28:36.647Z, Client: 127.0.0.1:61462, Command: APPEND V.txt yll sheremeti
+Timestamp: 2024-11-10T15:29:24.391Z, Client: 127.0.0.1:50785, Command: APPEND V.txt yll sheremeti
+Timestamp: 2024-11-10T15:30:17.941Z, Client: 127.0.0.1:50785, Command: sd
+Timestamp: 2024-11-10T15:30:33.359Z, Client: 127.0.0.1:50785, Command: EXECUTE dir
+Timestamp: 2024-11-10T15:31:00.461Z, Client: 127.0.0.1:50785, Command: CREATE H.txt
+Timestamp: 2024-11-10T15:31:25.582Z, Client: 127.0.0.1:50785, Command: LIST
+Timestamp: 2024-11-10T15:31:34.244Z, Client: 127.0.0.1:50785, Command: ERASE 127.0.0.1:50785
