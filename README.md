@@ -16,8 +16,8 @@ EXECUTE <command>: (Vetëm për klientin e parë) Ekzekuton një komandë të si
 CREATE <file>: (Vetëm për klientin e parë) Krijon një skedar të ri. <br>
 ERASE <client>: (Vetëm për klientin e parë) Fshin një klient nga lista e lidhjeve. <br>
 LIST: (Vetëm për klientin e parë) Shfaq listën e klientëve të lidhur. <br>
-EXIT: Klienti largohet nga serveri.
-Logimi dhe Inaktiviteti:
+EXIT: Klienti largohet nga serveri. <br> <br>
+Logimi dhe Inaktiviteti: <br>
 
 Çdo komandë regjistrohet në një fajll log ("server.log").
 Klientët që janë inaktiv për më shumë se 60 sekonda largohen automatikisht.
